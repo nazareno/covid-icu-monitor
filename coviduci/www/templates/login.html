@@ -9,7 +9,7 @@
 
   {% if status is not None %}
     {% if status == 'wrong_login' %}
-      <h3><font color="red">Clave incorrecta, intente de nuevo.</font></h3>
+      <h3><font color="red">Usuário/senha incorreto, tente novamente.</font></h3>
     {% end %}
   {% end %}
 
@@ -17,11 +17,19 @@
 
 {% block content %}
 <div class="inicio">
-  <h1>CovidUCI-EC Login</h1>
+  <h1>Login</h1>
   <hr class="title">
   <form action="/login" method="post">
-    <h4>Ingrese su usuario: <input type="text" name="user"></h4>
-    <h4>Ingrese su clave: <input type="password" name="clave"></h4>
-    <input type="submit" value="Ingresar">
+    <div class="form-group">
+      <label>Usuário</label>
+      <input type="text" class="form-control" name="user" placeholder="Hospital ou login">
+      <small id="emailHelp" class="form-text text-muted">Nome como cadastrado no sistema.</small>
+    </div>
+    <div class="form-group">
+      <label>Senha</label>
+      <input type="password" class="form-control" name="clave" placeholder="Senha">
+    </div>
+    <button type="submit" class="btn btn-primary">Entrar</button>
   </form>
+</div>
 {% end %}

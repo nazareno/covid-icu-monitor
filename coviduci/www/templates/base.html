@@ -1,7 +1,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>{% block title %}CovidUCI-EC{% end %}</title>
+    <title>{% block title %}Acompanhamento de UTIs{% end %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -11,7 +11,7 @@
 <body>
 <header>
     <nav class="navbar navbar-expand-md navbar-blue fixed-top bg-dark">
-        <a class="navbar-brand" href="#">COVIDUCI-EC</a>
+        <a class="navbar-brand" href="#">Acompanhamento de UTIs</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -23,39 +23,39 @@
                 </li>
                 {% if user != 'none'  and user != 'admin' and user != 'ministerio' %}
                   <li class="nav-item">
-                      <a class="nav-link" href="\show">Datos</a>
+                      <a class="nav-link" href="\show">Dados</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="\update">Actualizar</a>
+                      <a class="nav-link" href="\update">Atualizar</a>
                   </li>
                 {% end %}
                 {% if user == 'admin' %}
                   <li class="nav-item">
-                      <a class="nav-link" href="\add_hospital">Agregar hospital</a>
+                      <a class="nav-link" href="\add_hospital">Adicionar hospital</a>
                   </li>
                 {% end %}
                 {% if user == 'admin' or user == 'ministerio' %}
                   <li class="nav-item">
-                      <a class="nav-link" href="\list_hospitals">Lista de hospitales</a>
+                      <a class="nav-link" href="\list_hospitals">Lista de hospitais</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="\datos_completos">Datos completos</a>
+                      <a class="nav-link" href="\datos_completos">Dados completos</a>
                   </li>
                 {% end %}
-                {% if user != 'admin' %}
+                <!-- {% if user != 'admin' %}
                 <li class="nav-item">
-                    <a class="nav-link" href="\investigacion">Investigación</a>
+                    <a class="nav-link" href="\investigacion">Pesquisa</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="\mindfulness">Mindfulness</a>
                 </li>
-                {% end %}
+                {% end %} -->
                 {% if user != 'none' %}
                   <li class="nav-item">
-                      <a class="nav-link" href="\update_login">Cambiar login</a>
+                      <a class="nav-link" href="\update_login">Trocar usuário</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="\logout">Salir</a>
+                      <a class="nav-link" href="\logout">Sair</a>
                   </li>
                 {% end %}
             </ul>

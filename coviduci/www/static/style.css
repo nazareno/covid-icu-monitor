@@ -79,7 +79,7 @@ div.jumbotron {
 
 div.container {
   width: 80%;
-  text-align: center;
+  /* text-align: center; */
   background-color: white;
 }
 
