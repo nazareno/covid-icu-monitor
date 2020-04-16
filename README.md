@@ -180,5 +180,60 @@ If you would like to deploy your own service, follow the instructions below. Som
 
 1.  Good luck!
 
+# Internationalization
 
-This repo was originally forked from [ICUBAM](https://github.com/icubam/icubam).
+Based on the tutorials of [Alexey Evseev](http://www.lexev.org/en/2015/tornado-internationalization-and-localization/) and [Matt Layman](https://www.mattlayman.com/blog/2015/i18n/).
+
+To work on the i18n, you need to install [gettext](https://www.gnu.org/software/gettext/).
+
+You also need to install Transifex client.
+```
+source <your-virtual-env-folder>/bin/activate
+pip install transifex-client
+```
+
+1. All text strings must be written in English.
+2. Use the following code to create an alias function to make strings translatable:
+
+```
+from tornado import locale
+
+user_locale = locale.get()
+_ = user_locale.translate
+```
+
+3. Make strings translatable using the alias function `_`:
+
+```
+_('Example of translatable string')
+_('Close the underscore function first. A {number}').format(number=42)
+```
+
+4. Extract messages to messages.pot:
+
+```
+git pull
+cd scripts/
+chmod a+x ./make-pot.sh
+./make-pot.sh
+```
+
+5. Push POT to Transifex
+
+```
+tx push -st
+```
+
+At this point, you need to wait translations to be ready on Transifex.
+
+6. Pull translations from Transifex
+
+```
+tx push -a
+```
+
+7. Compile the PO files
+
+```
+./compile-po.sh
+```
