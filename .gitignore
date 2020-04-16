@@ -16,3 +16,6 @@ env
 # Database
 *.db
 .envrc
+
+# macOS crap files
+.DS_Store
