@@ -9,35 +9,35 @@
 
   {% if status is not None %}
     {% if status == 'success' and new_user is not None %}
-      <h3><font color="red">El usuario {{new_user}} ha sido agregado.</font></h3>
+      <h3><font color="red">{{ _("The user {0} has been added.").format(new_user) }}</font></h3>
     {% elif status == 'mismatch' %}
-      <h3><font color="red">Los dos logins nuevos no coinciden.</font></h3>
+      <h3><font color="red">{{ _("The two new usernames do not match.") }}</font></h3>
     {% elif status == 'short' %}
-      <h3><font color="red">El nuevo login es muy corto, intente de nuevo.</font></h3>
+      <h3><font color="red">{{ _("The new username is very short, try again.") }}</font></h3>
     {% elif status == 'error' %}
-      <h3><font color="red">Ha ocurrido un error, por favor intente de nuevo.</font></h3>
+      <h3><font color="red">{{ _("An error has occurred. Please try again.") }}</font></h3>
     {% end %}
   {% end %}
 
 {% end %}
 
 {% block content %}
-      <h1>Agregue un nuevo hospital</h1>
+      <h1>{{ _("Add a new hospital") }}</h1>
 
       <hr class="title">
 
       <form action="/add_hospital" method="POST">
         <div class="form-row">
           <div class="form-elem positive">
-            <label for="display_name" class="form-label">Hospital:</label>
+            <label for="display_name" class="form-label">{{ _("Hospital:") }}</label>
             <div>
               <input class="form-control" type="text"
                name="display_name" id="display_name" value=""
-               placeholder="Ingrese el nombre del hospital aquí">
+               placeholder="{{ _('Hospital\'s name') }}">
             </div>
           </div>
           <div class="form-elem positive">
-            <label for="clave" class="form-label">Clave de ingreso (mínimo 7 caracteres)</label>
+            <label for="clave" class="form-label">{{ _("Password (7 characters long):") }}</label>
             <div>
               <input class="form-control" type="password" name="clave" id="clave">
             </div>
@@ -45,7 +45,7 @@
              name="user" id="user" value="{{user}}">
           </div>
           <div class="form-elem positive">
-            <label for="clave_2" class="form-label">Confirme clave de ingreso</label>
+            <label for="clave_2" class="form-label">{{ _("Confirm password:") }}</label>
             <div>
               <input class="form-control" type="password" name="clave_2" id="clave_2">
             </div>
@@ -53,7 +53,7 @@
         </div>
 
         <hr class="separator">
-        <h2>Estadísticas de pacientes</h2>
+        <h2>{{ _("Patients' Statistics") }}</h2>
         <div class="form-row">
           <div class="form-elem positive">
             <label for="p_ingresos" class="form-label">Pacientes ingresados (Covid)</label>

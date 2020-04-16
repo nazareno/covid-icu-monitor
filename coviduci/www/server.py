@@ -4,6 +4,9 @@ import tornado.ioloop
 from tornado import queues
 import tornado.web
 
+from tornado import locale
+from pathlib import Path
+
 from coviduci.db import queue_writer
 from coviduci.db import sqlite
 from coviduci.www import token
@@ -30,6 +33,8 @@ class WWWServer:
     self.callbacks = [
       queue_writer.QueueWriter(self.writing_queue, self.db)
     ]
+    locale_path = Path(__file__).parent.parent.joinpath('locale')
+    locale.load_gettext_translations(locale_path, 'messages')
 
   def add_handler(self, handler, **kwargs):
     route = os.path.join('/', handler.ROUTE)

@@ -21,15 +21,15 @@
   <hr class="title">
   <form action="/login" method="post">
     <div class="form-group">
-      <label>Usuário</label>
+      <label>{{ _("User") }}</label>
       <input type="text" class="form-control" name="user" placeholder="Hospital ou login">
-      <small id="emailHelp" class="form-text text-muted">Nome como cadastrado no sistema.</small>
+      <small id="emailHelp" class="form-text text-muted">{{ _("Username:") }}</small>
     </div>
     <div class="form-group">
-      <label>Senha</label>
+      <label>{{ _("Password:") }}</label>
       <input type="password" class="form-control" name="clave" placeholder="Senha">
     </div>
-    <button type="submit" class="btn btn-primary">Entrar</button>
+    <button type="submit" class="btn btn-primary">{{ _("Login") }}</button>
   </form>
 </div>
 {% end %}

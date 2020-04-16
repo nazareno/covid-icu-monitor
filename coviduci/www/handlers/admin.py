@@ -1,8 +1,11 @@
 from absl import logging
-import tornado.web
+from tornado import web, locale
 from coviduci.db import sqlite
 from coviduci.www.handlers import base
 from coviduci.www import token
+
+user_locale = locale.get()
+_ = user_locale.translate
 
 
 TEST_HOSPITALS = ['Ministerio de Salud', 'Administrador',
@@ -23,7 +26,7 @@ class AddHospitalHandler(base.BaseHandler):
     if not self.current_user:
       self.redirect('/login')
       return
-    user = tornado.escape.xhtml_escape(self.current_user)
+    user = escape.xhtml_escape(self.current_user)
     if user != 'admin':
       self.redirect('/')
       return
@@ -60,7 +63,7 @@ class ListHospitalsHandler(base.BaseHandler):
     if not self.current_user:
       self.redirect('/login')
       return
-    user = tornado.escape.xhtml_escape(self.current_user)
+    user = escape.xhtml_escape(self.current_user)
     if user != 'admin' and user != 'ministerio':
       self.redirect('/')
       return
@@ -143,7 +146,7 @@ class AllDataHandler(base.BaseHandler):
     if not self.current_user:
       self.redirect('/login')
       return
-    user = tornado.escape.xhtml_escape(self.current_user)
+    user = escape.xhtml_escape(self.current_user)
     if user != 'admin' and user != 'ministerio':
       self.redirect('/')
       return
