@@ -2,25 +2,29 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
+# Translators:
+# Luiz Augusto Morais <luizaugustomm@gmail.com>, 2020
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-16 13:11-0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2020-04-16 14:49+0000\n"
+"Last-Translator: Luiz Augusto Morais <luizaugustomm@gmail.com>, 2020\n"
+"Language-Team: Portuguese (https://www.transifex.com/tomato-translators/teams/109169/pt/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../coviduci/www/templates/add_hospital.html:12
 #, python-brace-format
 msgid "The user {0} has been added."
-msgstr ""
+msgstr "O usuário {0} foi adicionado."
 
 #: ../coviduci/www/templates/add_hospital.html:14
 msgid "The two new usernames do not match."
@@ -36,7 +40,7 @@ msgstr ""
 
 #: ../coviduci/www/templates/add_hospital.html:25
 msgid "Add a new hospital"
-msgstr ""
+msgstr "Adicionar novo hospital"
 
 #: ../coviduci/www/templates/add_hospital.html:32
 msgid "Hospital:"
@@ -56,7 +60,7 @@ msgstr ""
 
 #: ../coviduci/www/templates/login.html:24
 msgid "User"
-msgstr ""
+msgstr "Usuário"
 
 #: ../coviduci/www/templates/login.html:26
 msgid "Username:"

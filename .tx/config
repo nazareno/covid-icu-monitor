@@ -1,0 +1,9 @@
+[main]
+host = https://www.transifex.com
+
+[icu-monitor.messages-pot]
+file_filter = coviduci/locale/<lang>/messages.po
+minimum_perc = 0
+source_file = coviduci/locale/messages.pot
+source_lang = en
+type = PO
