@@ -209,6 +209,12 @@ _('Example of translatable string')
 _('Close the underscore function first. A {number}').format(number=42)
 ```
 
+Strings from templates also need to be wrapped by the alias function:
+
+```
+{{ _('Example of translatable string') }} 
+```
+
 4. Extract messages to messages.pot:
 
 ```
