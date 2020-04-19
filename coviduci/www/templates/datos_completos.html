@@ -7,15 +7,15 @@
 
 {% block content %}
 <div class="container">
-    <h1>Datos completos de todos los hospitales</h1>
+    <h1>{{ _("Hospitals' details") }}</h1>
     <hr class="title">
 
     {% if nodisp is not None %}
-      <h2><font color="red">Elementos no disponibles</font></h2>
+      <h2><font color="red">{{ _("Unavailable items") }}</font></h2>
       <table style="width:100%">
         <tr>
-          <th><b>Hospital</b></th>
-          <th><b>Elementos</b></th>
+          <th><b>{{ _("Hospital") }}</b></th>
+          <th><b>{{ _("Items" )}}</b></th>
         </tr>
         {% for hospital in nodisp %}
           {% if len(nodisp[hospital]) %}
@@ -31,11 +31,11 @@
     {% end %}
 
     {% if criticos is not None %}
-      <h2><font color="red">Elementos en estado crítico</font></h2>
+      <h2><font color="red">{{ _("Items in a critical level") }}</font></h2>
       <table style="width:100%">
         <tr>
-          <th><b>Hospital</b></th>
-          <th><b>Elementos</b></th>
+          <th><b>{{ _("Hospital") }}</b></th>
+          <th><b>{{ _("Items" )}}</b></th>
         </tr>
         {% for hospital in criticos %}
           {% if len(criticos[hospital]) %}
@@ -49,21 +49,21 @@
 
     <hr class="separator">
     {% end %}
-    <h2>Estadísticas de pacientes</h2>
+    <h2>{{ _("Patients stats") }}</h2>
     <table style="width:100%">
       <tr>
-        <th><b>Hospital</b></th>
-        <th><b>Ingresados (Covid)</b></th>
-        <th><b>Ingresados (Sospecha covid)</b></th>
-        <th><b>Ingresados (Otros)</b></th>
-        <th><b>De alta (Covid)</b></th>
-        <th><b>De alta (Otros)</b></th>
-        <th><b>Fallecidos (Covid)</b></th>
-        <th><b>Fallecidos (Sospecha covid)</b></th>
-        <th><b>Fallecidos (Otros)</b></th>
+        <th><b>{{ _("Hospital") }}</b></th>
+        <th><b>{{ _("Admitted") }} {{ _("(Covid)") }}</b></th>
+        <th><b>{{ _("Admitted") }} {{ _("(Suspected of Covid)") }}</b></th>
+        <th><b>{{ _("Admitted") }} {{ _("(Other)") }}</b></th>
+        <th><b>{{ _("Discharged") }} {{ _("(Covid)") }}</b></th>
+        <th><b>{{ _("Discharged") }} {{ _("(Other)") }}</b></th>
+        <th><b>{{ _("Deceased") }} {{ _("(Covid)") }}</b></th>
+        <th><b>{{ _("Deceased") }} {{ _("(Suspected of Covid)") }}</b></th>
+        <th><b>{{ _("Deceased") }} {{ _("(Other)") }}</b></th>
       </tr>
       <tr>
-        <th><b>Total</b></th>
+        <th><b>{{ _("Total") }}</b></th>
         <th><b>{{p_ingresos['total']}}</b></th>
         <th><b>{{p_ingresos_sosp['total']}}</b></th>
         <th><b>{{p_ingresos_otros['total']}}</b></th>
@@ -92,17 +92,17 @@
     </table>
 
     <hr class="separator">
-    <h2>Estadísticas de camas</h2>
+    <h2>{{ _("Bed stats") }}</h2>
     <table style="width:100%">
       <tr>
-        <th><b>Hospital</b></th>
-        <th><b>Total UCI</b></th>
-        <th><b>En uso (Covid)</b></th>
-        <th><b>En uso (Otros)</b></th>
-        <th><b>Demanda insatisfecha</b></th>
+        <th><b>{{ _("Hospital") }}</b></th>
+        <th><b>{{ _("Total ICU beds") }}</b></th>
+        <th><b>{{ _("Used") }} {{ _("(Covid)") }}</b></th>
+        <th><b>{{ _("Used") }} {{ _("(Other)") }}</b></th>
+        <th><b>{{ _("Unmet demand") }}</b></th>
       </tr>
       <tr>
-        <th><b>Total</b></th>
+        <th><b>{{ _("Total") }}</b></th>
         <th><b>{{c_uci['total']}}</b></th>
         <th><b>{{c_usadas['total']}}</b></th>
         <th><b>{{c_usadas_otras['total']}}</b></th>
@@ -123,17 +123,17 @@
     </table>
 
     <hr class="separator">
-    <h2>Estadísticas de personal</h2>
+    <h2>{{ _("Personnel stats") }}</h2>
     <table style="width:100%">
       <tr>
-        <th><b>Hospital</b></th>
-        <th><b>Médicos<br>(en cuarentena / Covid+)</b></th>
-        <th><b>Enfermeros<br>(en cuarentena / Covid+)</b></th>
-        <th><b>Auxiliares<br>(en cuarentena / Covid+)</b></th>
-        <th><b>Terapistas respiratorios<br>(en cuarentena / Covid+)</b></th>
+        <th><b>{{ _("Hospital") }}</b></th>
+        <th><b>{{ _("Doctors") }}<br>({{ _("in quarantine") }} / {{ _("Covid+") }})</b></th>
+        <th><b>{{ _("Nurses") }}<br>({{ _("in quarantine") }} / {{ _("Covid+") }})</b></th>
+        <th><b>{{ _("Assistants") }}<br>({{ _("in quarantine") }} / {{ _("Covid+") }})</b></th>
+        <th><b>{{ _("Respiratory therapists") }}<br>(en cuarentena / Covid+)</b></th>
       </tr>
       <tr>
-        <th><b>Total</b></th>
+        <th><b>{{ _("Hospital") }}</b></th>
         <th><b>{{medicos['total']}} ({{medicos_4['total']}} / {{medicos_c['total']}})</b></th>
         <th><b>{{enfermeros['total']}} ({{enfermeros_4['total']}} / {{enfermeros_c['total']}})</b></th>
         <th><b>{{auxiliares['total']}} ({{auxiliares_4['total']}} / {{auxiliares_c['total']}})</b></th>
@@ -155,11 +155,11 @@
 
     <hr class="separator">
     {% if medios is not None %}
-      <h2>Elementos en estado medio</h2>
+      <h2>{{ _("Items in a medium level") }}</h2>
       <table style="width:100%">
         <tr>
-          <th><b>Hospital</b></th>
-          <th><b>Elementos</b></th>
+          <th><b>{{ _("Hospital") }}</b></th>
+          <th><b>{{ _("Items" )}}</b></th>
         </tr>
         {% for hospital in medios %}
           {% if len(medios[hospital]) %}
@@ -175,11 +175,11 @@
     {% end %}
 
     {% if adecuados is not None %}
-      <h2>Elementos en estado adecuado</h2>
+      <h2>{{ _("Items in proper condition") }}</h2>
       <table style="width:100%">
         <tr>
-          <th><b>Hospital</b></th>
-          <th><b>Elementos</b></th>
+          <th><b>{{ _("Hospital") }}</b></th>
+          <th><b>{{ _("Items" )}}</b></th>
         </tr>
         {% for hospital in adecuados %}
           {% if len(adecuados[hospital]) %}
@@ -195,11 +195,11 @@
     {% end %}
 
     {% if n_a is not None %}
-      <h2>Elementos sin información</h2>
+      <h2>{{ _("Items without information") }}</h2>
       <table style="width:100%">
         <tr>
-          <th><b>Hospital</b></th>
-          <th><b>Elementos</b></th>
+          <th><b>{{ _("Hospital") }}</b></th>
+          <th><b>{{ _("Items" )}}</b></th>
         </tr>
         {% for hospital in n_a %}
           {% if len(n_a[hospital]) %}
@@ -214,11 +214,11 @@
     <hr class="separator">
     {% end %}
 
-    <h2>Últimas actualizaciones</h2>
+    <h2>{{ _("Latest updates") }}</h2>
     <table style="width:100%">
         <tr>
-          <th><b>Hospital</b></th>
-          <th><b>Elementos</b></th>
+          <th><b>{{ _("Hospital") }}</b></th>
+          <th><b>{{ _("Items" )}}</b></th>
         </tr>
       {% for hospital in actualizaciones %}
         <tr><th>{{display_name[hospital]}}</th><th>{{actualizaciones[hospital]}}</th></tr>

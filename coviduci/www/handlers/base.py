@@ -1,12 +1,14 @@
-from absl import logging
+webfrom absl import logging
+from tornado import web
 import math
 import numpy as np
 import pandas as pd
 import time
-import tornado.web
 
+user_locale = locale.get()
+_ = user_locale.translate
 
-class BaseHandler(tornado.web.RequestHandler):
+class BaseHandler(web.RequestHandler):
   """A base class for handlers."""
 
   TABLES = ['insumos', 'medicaciones']
@@ -61,16 +63,22 @@ class BaseHandler(tornado.web.RequestHandler):
 
   def _time_ago(self, ts) -> str:
     if ts is None:
-      return 'jamás'
-  
+      return _('never')
+
     delta = int(time.time() - int(ts))
-    units = [(86400, 'día'), (3600, 'hora'), (60, 'minuto'), (1, 'segundo')]
+    units = [(86400, 'day'), (3600, 'hour'), (60, 'minute'), (1, 'second')]
     for unit, name in sorted(units, reverse=True):
       curr = delta // unit
       if curr > 0:
-        plural = '' if curr == 1 else 's' # hack
-        return 'hace {} {}{}'.format(curr, name, plural)
-    return 'ahorita'
+        if name == 'day':
+            return _('{curr} day ago', '{curr} days ago', curr).format(curr)
+        elif name == 'hour':
+            return _('{curr} hour ago', '{curr} hours ago', curr).format(curr)
+        elif name == 'minute':
+            return _('{curr} minute ago', '{curr} minutes ago', curr).format(curr)
+        else:
+            return _('{curr} second ago', '{curr} seconds ago', curr).format(curr)
+    return _('now')
 
   def _get_data(self, hospital, aggregated):
     df = self.db.get_data('hospitales')

@@ -9,7 +9,7 @@
 
   {% if status is not None %}
     {% if status == 'wrong_login' %}
-      <h3><font color="red">Usuário/senha incorreto, tente novamente.</font></h3>
+      <h3><font color="red">{{ _("Incorrect user/password, try again.") }}</font></h3>
     {% end %}
   {% end %}
 

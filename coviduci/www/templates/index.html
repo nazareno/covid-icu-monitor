@@ -7,16 +7,16 @@
 
 {% block content %}
 <div class="inicio">
-  <h2>Acompanhamento das UTIs Covid-19</h2>
+  <h2>{{ _("ICU Monitoring") }} - Covid-19</h2>
   <hr class="title">
   <h4>
   <p>
-    Bem-vindo, responsável pelo hospital {{display_name}}.
+    {{ _("Welcome, hospital manager") }} {{display_name}}.
   </p>
   <p>
-   Esse é uma plataforma para atualização em tempo real de dados sobre a situação das UTIs relacionadas à pandemia de Covid-19.
+   {{ _("This is a platform for real-time update of data on the status of ICUs related to the Covid-19 pandemic.") }}
   </p>
   <hr class="minor">
-  <p>Para continuar, selecione uma das opções no topo dessa página.</p>
+  <p>{{ _("To continue, select one of the options at the top of this page.") }}</p>
   </h4>
 {% end %}

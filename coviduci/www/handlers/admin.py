@@ -1,11 +1,8 @@
 from absl import logging
-from tornado import web, locale
+from tornado import web
 from coviduci.db import sqlite
 from coviduci.www.handlers import base
 from coviduci.www import token
-
-user_locale = locale.get()
-_ = user_locale.translate
 
 
 TEST_HOSPITALS = ['Ministerio de Salud', 'Administrador',
